@@ -1,0 +1,497 @@
+/*----------------
+階層構造
+×ボタン       z-index: 200
+ドロワー      z-index: 150
+ヘッダー      z-index: 100
+暗幕          z-index: 90
+FV            z-index: 0～ 
+----------------*/
+
+/*----------------
+  背景を暗くする
+-----------------*/
+body:has(.nav-menu.active)::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(35, 55, 80, 0.45);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 90;/*----上から4番目----*/ 
+}
+
+
+/*--------------
+header
+---------------*/
+.site-header{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 100;/*----上から3番目----*/
+    width: 100%; 
+    height: 44px; 
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(82, 117, 101, 0.2);
+    box-shadow: 0 2px 8px rgba(40, 55, 45, 0.1);
+    .container{
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        & .corporation a{
+            position: relative; /* 下線の位置の基準 */
+            display: flex; /* ロゴと株式会社を横並びに */
+            align-items: baseline; /*株式会社の文字を下揃えにするため*/
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--color-accent3)
+        }
+         /* ロゴの下線 */
+        & .corporation a::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.3rem;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-accent);
+            border-radius: 5px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        & .corporation a:hover{
+              color: var(--color-accent);
+        }
+        & .corporation a:hover::after{
+            transform: scaleX(1);
+        }
+
+        & .header-menu{
+            margin-left: auto;
+            .nav-links{
+                display: flex;
+                gap: 0;
+                padding: 0;
+                background-color: var(--color-accent);
+                border-radius: 25px;
+            }
+            .nav-links a{
+                position: relative;
+                display: block;
+                padding: 0.7rem 1.5rem;
+                color: var(--color-base);
+                font-family: "Cormorant Garamond", serif;
+                font-size: 1.3rem;
+                font-weight: 400;
+            }
+            .nav-links a:hover{
+                background: rgba(255, 255, 255, 0.15);
+            }
+            .nav-links li + li a::before{
+                content: "";
+                position: absolute;
+                top: 25%;
+                left: 0;
+                height: 50%;
+                border-left: 1px solid rgba(255, 255, 255, 0.6);
+            }
+            
+        }
+    }/*----- containerここまで -----*/
+}
+
+
+/*----------------
+ハンバーガーメニュー
+-----------------*/
+.hamburger{
+            display: none;
+            width: 40px;
+            height: 25px;
+            position: absolute;
+            z-index: 200;/*----1番上----*/
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);           
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            .hamburger-line{
+                display: block;
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                background-color: var(--color-accent);
+                border-radius: 2px;
+                transition: background-color 0.3s ease;
+            }         
+}
+/*----- ハンバーガーの線 -----*/
+.hamburger-line::before,
+.hamburger-line::after
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+}              
+.hamburger-line::before{
+    
+    transform: translateY(-8px)
+}
+.hamburger-line::after{
+   
+    transform: translateY(8px);
+} 
+/*----- ×に変化 -----*/
+.hamburger.active .hamburger-line{
+    background-color: transparent;
+}
+.hamburger.active .hamburger-line::before{
+    transform: translateY(0) rotate(45deg);
+} 
+.hamburger.active .hamburger-line::after{
+    transform: translateY(0) rotate(-45deg);
+}
+
+
+
+/*---------------
+ ドロワーメニュー 
+---------------*/
+.nav-menu{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(420px, 85%);
+    height: 100vh;   
+    padding: 5rem 2.5rem 2rem;
+    background: rgba(247, 245, 239, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: none;/*---- pcは非表示 ----*/
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 150;   /*----上から2番目----*/
+    border-left: 1px solid rgba(194, 169, 120, 0.7);
+    box-shadow: -5px 0 20px rgba(32, 61, 53, 0.2);
+    transform: translateX(100%);/*----- PCでは右側に隠す -----*/
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease,
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+    overflow: hidden;
+  
+}
+
+.nav-menu.active{
+    transform: translateX(0);/*----- ドロワーを開いた状態 -----*/
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* ドロワー内の装飾 */
+.name-area{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    
+    .name{
+        position: relative;
+        display: inline-block;
+        color: var(--color-accent);
+        letter-spacing: 0.1em;
+        padding-bottom: 1rem;
+        &::after{
+        content: "";
+        display: block;
+        width: 70%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: var(--gradient-line);
+        border-radius: 5px;
+        }  
+    }
+    
+}
+
+.nav-links-area{
+    width: 100%;
+    .nav-links{
+        display: flex;
+        flex-direction: column;  
+        gap:0.8rem; 
+        width: 100%;
+        li{
+            width: 100%;
+        }
+        li:nth-child(1) a::before {
+             background-image: url("../images/drawer-icon/home.png");
+            }
+
+            li:nth-child(2) a::before {
+                background-image: url("../images/drawer-icon/about.png");
+            }
+
+            li:nth-child(3) a::before {
+                background-image: url("../images/drawer-icon/service.png");
+            }
+
+            li:nth-child(4) a::before {
+                background-image: url("../images/drawer-icon/news.png");
+            }
+
+            li:nth-child(5) a::before {
+                background-image: url("../images/drawer-icon/contact.png");
+        }
+        a{            
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            width: 100%;
+            color: var(--color-accent);
+            padding: 1rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid rgba(82, 117, 101, 0.2);
+            background-color: rgba(255, 255, 255, 0.5);
+            font-size: 1.6rem;
+            transition: color 0.3s ease,
+                        background-color 0.3s ease,
+                        border-color 0.3s ease,
+                        box-shadow 0.3s ease,
+                        transform 0.3s ease;
+            &::before{  /*----- 左側のアイコンの〇 -----*/
+                content: "";
+                flex-shrink: 0;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                background-color: var(--color-accent2);
+                background-position: center;
+                background-size: 22px;
+            }
+            &::after{   /*----- 矢印 -----*/
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: 2rem;
+                width: 8px;
+                height: 8px;
+                border-top: 1px solid var(--color-accent);
+                border-right: 1px solid var(--color-accent);
+                transform: translateY(-50%) rotate(45deg);
+                transition: all 0.3s ease;
+           
+            }
+            
+            &:hover{
+                background: var(--color-accent2);
+                border-color: var(--color-accent);
+                color: var(--color-accent3);
+                transform: translateX(5px);
+                box-shadow: 0 4px 10px rgba(70, 60, 40, 0.1);
+                 /*----- 矢印もhoverで色変更 -----*/
+                &::after{
+                    border-top: 2px solid var(--color-accent);
+                    border-right: 2px solid var(--color-accent);
+                    right: 1.6rem;
+                } 
+            }
+            
+        }
+        /*  a span：英語のメニュー名
+            a span::after：日本語の説明
+            a::before：左側のアイコン
+            a::after：右側の矢印   */
+        /* 英語メニュー名 */
+        a span{
+            position: relative;
+            display: inline-block;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem;
+            line-height: 1.4;
+            padding: 0 1.5rem 2rem 0;
+        }
+
+        /* 日本語の説明 */
+        a span::after{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        /* 各メニューの日本語 */
+        li:nth-child(1) a span::after{
+            content: "ホーム";
+        }   
+        li:nth-child(2) a span::after{
+            content: "会社紹介";
+        }   
+        li:nth-child(3) a span::after{
+            content: "サービス";
+        }   
+        li:nth-child(4) a span::after{
+            content: "お知らせ";
+        }   
+        li:nth-child(5) a span::after{
+            content: "連絡先";
+        }   
+    }
+}
+/*---------------
+ sns
+---------------*/
+.social-links-area{
+    position: relative;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    width: 100%;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-image: var(--gradient-line);
+        border-radius: 5px;
+    }
+    .social-links{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        .sns-icon{
+            width: 45px;
+            height: 45px;
+            display: inline-block;
+            background-size: 55% auto ;
+            background-position: center;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(70, 60, 40, 0.3);
+            transition: transform 0.3s,
+                        box-shadow 0.3s ease;
+            &:hover{
+                transform: translateY(-4px) scale(1.1);
+                box-shadow: 0 8px 18px rgba(100, 150, 200, 0.35);
+            }
+        }
+        
+        .Instagram{
+            background-image: url(../images/social-links/Instagram_icon.png)
+        }
+        .Twitter{
+            background-image: url(../images/social-links/x-white.png);
+        }
+        .Line{
+            background-color: var(--color-base);
+            background-image: url(../images/social-links/line_icon.png);
+            background-position: center;
+            background-size: 70% auto
+        }
+        .mail{
+            background-image: url(../images/social-links/mail.png);
+        }
+    }
+}
+/*---------------
+ スマホ・タブレット対応
+---------------*/
+@media screen and (max-width: 768px) {
+    .header-menu{
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .nav-menu{
+        display: flex;
+       
+    }
+}
+
+
+/*---------------
+   cta_button
+---------------*/
+.cta_button{
+    width: min(100%, 32rem);
+    margin: 3rem auto 0;
+    & a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        min-height: 6rem;
+        padding: 1rem 2.5rem;
+        background-image: var(--gradient-line2);
+        color:var(--color-base);
+        border: 1px solid #c4a15e;
+        border-radius: 999px;
+        font-size: 1.8rem;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+        cursor: pointer; /*href=""を入れてないので*/
+        box-shadow: 0 4px 12px rgba(125, 94, 40, 0.3);
+        transition:
+            box-shadow 0.3s ease,
+            transform 0.3s ease;
+    }
+    /* 内側の白い線 */
+    & a::before{
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        border-radius: inherit;
+    }
+    /* ホバー */
+    & a:hover {
+       transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(125, 94, 40, 0.4);
+        
+    }
+    & a:hover span:last-child {
+        transform: translateX(5px);
+    }
+}
+
+
+
+
+
+
+
