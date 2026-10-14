@@ -46,11 +46,34 @@ header
             position: relative; /* 下線の位置の基準 */
             display: flex; /* ロゴと株式会社を横並びに */
             align-items: baseline; /*株式会社の文字を下揃えにするため*/
+            gap: 0.5rem;
+            padding-left: 2.5rem;
             font-family: "Cormorant Garamond", serif;
             font-size: 2.5rem;
             font-weight: 500;
             letter-spacing: 0.04em;
             color: var(--color-accent3)
+        }
+        /* 株式会社 */
+        & .corporation a span{
+            font-family: "Noto Sans JP", sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+        /* 植物アイコン */
+        & .corporation a::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+            background-image: url(../images/logo-icon.png);
+            background-size: contain;
+            background-position: center;
+
         }
          /* ロゴの下線 */
         & .corporation a::after{
@@ -255,22 +278,22 @@ header
              background-image: url("../images/drawer-icon/home.png");
             }
 
-            li:nth-child(2) a::before {
-                background-image: url("../images/drawer-icon/about.png");
-            }
-
-            li:nth-child(3) a::before {
-                background-image: url("../images/drawer-icon/service.png");
-            }
-
-            li:nth-child(4) a::before {
-                background-image: url("../images/drawer-icon/news.png");
-            }
-
-            li:nth-child(5) a::before {
-                background-image: url("../images/drawer-icon/contact.png");
+        li:nth-child(2) a::before {
+            background-image: url("../images/drawer-icon/about.png");
         }
-        a{            
+
+        li:nth-child(3) a::before {
+            background-image: url("../images/drawer-icon/service.png");
+        }
+
+        li:nth-child(4) a::before {
+            background-image: url("../images/drawer-icon/news.png");
+        }
+
+        li:nth-child(5) a::before {
+            background-image: url("../images/drawer-icon/contact.png");
+        }
+        li > a{            
             position: relative;
             display: flex;
             align-items: center;
@@ -310,7 +333,6 @@ header
                 transition: all 0.3s ease;
            
             }
-            
             &:hover{
                 background: var(--color-accent2);
                 border-color: var(--color-accent);
@@ -328,8 +350,9 @@ header
         }
         /*  a span：英語のメニュー名
             a span::after：日本語の説明
-            a::before：左側のアイコン
+            a::before：左側のアイコン画像と〇
             a::after：右側の矢印   */
+
         /* 英語メニュー名 */
         a span{
             position: relative;
@@ -380,7 +403,9 @@ header
         content: "";
         position: absolute;
         top: 0;
-        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
         height: 2px;
         display: block;
         background-image: var(--gradient-line);
@@ -457,16 +482,16 @@ header
         width: 100%;
         min-height: 6rem;
         padding: 1rem 2.5rem;
-        background-image: var(--gradient-line2);
+        background-image: var(--gradient-line);
         color:var(--color-base);
         border: 1px solid #c4a15e;
         border-radius: 999px;
         font-size: 1.8rem;
         font-weight: 500;
         letter-spacing: 0.1rem;
-        cursor: pointer; /*href=""を入れてないので*/
-        box-shadow: 0 4px 12px rgba(125, 94, 40, 0.3);
+        box-shadow: 0 4px 12px rgba(32, 61, 53, 0.3);
         transition:
+            background-image 0.3s ease,
             box-shadow 0.3s ease,
             transform 0.3s ease;
     }
@@ -480,8 +505,9 @@ header
     }
     /* ホバー */
     & a:hover {
-       transform: translateY(-2px);
-        box-shadow: 0 7px 18px rgba(125, 94, 40, 0.4);
+        background-image: var(--gradient-line2);
+        transform: translateY(-2px);
+        box-shadow: 0 7px 18px rgba(32, 61, 53, 0.4);
         
     }
     & a:hover span:last-child {

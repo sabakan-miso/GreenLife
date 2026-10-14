@@ -8,8 +8,8 @@
 /* アクセントカラー */
 --color-accent: #527565; /*緑*/
 --color-accent2: #E9EEE5; /*薄い緑*/
---color-accent3: #203d35; /*濃い緑*/
---color-accent4: #F7F5EF; /*背景色-薄いグレー色*/
+--color-accent3: #203d35; /*すごく濃い緑*/
+--color-accent4: #2a5146; /*濃い緑*/
 
 
 
@@ -18,20 +18,18 @@
 /* グラデーション */
 --gradient-line:linear-gradient(
     90deg, 
-    #c2a978,
-    #b68b37,
-    #654d1d                 
+    #A9C3AD 0%,
+    #527565 50%,
+    #203D35 100%              
  );
+
 --gradient-line2: linear-gradient(
-        135deg,
-        #b28a45 0%,
-        #e8d19a 35%,
-        #c5a15d 65%,
-        #a77b35 100%
-    );
+        90deg,
+        #527565 0%,
+        #203d35 100%
+);
 
-
-}
+}/* root終わり*/
 
 
 /* その他の設定 */
@@ -54,13 +52,11 @@ body{
 }
 h1,
 h2,
-.en-title,
-.site-logo {
+.en-title{
   font-family: "Cormorant Garamond", serif;
 }
 
 a{
-    color: var(--color-text);
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
@@ -92,12 +88,47 @@ small{
     padding-left: 1rem;
     padding-right: 1rem;
     /* background-color: rgba(190, 218, 242, 0.2);  */
-
     /* ↑後で消す */
 }
 
+/* 英語のサブタイトル */
+.subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+    font-family: "Cormorant Garamond", serif;
+    color: var(--color-accent);
+}
+
+/* キャッチコピー */
+.title {
+    margin-bottom: 2rem;
+    color: var(--color-accent3);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(2.8rem, 2rem + 2vw, 4.8rem);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+
+/* 説明文 */
+.description {
+    margin-bottom: 3rem;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    line-height: 2.2;
+    letter-spacing: 0.04em;
+}
+
+
+
+
+
+
+
+
 *{
-    /* outline:1px solid rgb(255, 145, 145); */
+    outline:1px solid rgb(255, 145, 145);
 }
 
 

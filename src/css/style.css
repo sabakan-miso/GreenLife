@@ -1,21 +1,53 @@
 main{
     padding-top: 0;
+}
 /*---------------------
    fv画面
 --------------------*/
+.fv{
+    background-image: url(../images/fv/fv_back_pc.jpg);
+    background-size: cover;
+    background-position: center; /*背景画像を左へずらす*/
+    height: 100svh; /*svhスマホの操作バーが表示されている状態を基準に高さを計算*/
+    display: flex;
+    align-items: center;
+    /* 固定ヘッダーの高さ分、文字を下げる */
+    padding-top: 44px;
+    .container{
+        width: 100%;
+    }
+    .container .fv-content{
+        max-width: 600px;
+        margin-left: 4%;
+        padding: 3rem 0;
+    }
+    /* 共通スタイル */
+    /* .subtitle .title .desctiption .cta_button*/
 
+    
+}/*-----fv終わり-----*/
 
-
-}
 
 
 
 /*--------------------
-     レスポンシブ
+    fv レスポンシブ
  ---------------------*/
 @media screen and (max-width:768px) {
-    
-    
+    .fv{
+        background-image: url(../images/fv/fv_back_sp.jpg);
+        min-height: 100svh;
+        height: auto;
+        background-position: center;
+        .container{
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .container .fv-content {
+            max-width: 100%;
+            margin-left: 0;
+        }
+    }
 }/*----- メディアクエリ終わり -----*/
     
 
