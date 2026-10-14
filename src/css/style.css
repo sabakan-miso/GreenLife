@@ -23,8 +23,6 @@ main{
     }
     /* 共通スタイル */
     /* .subtitle .title .desctiption .cta_button*/
-
-    
 }/*-----fv終わり-----*/
 
 
@@ -49,7 +47,136 @@ main{
         }
     }
 }/*----- メディアクエリ終わり -----*/
+
+
+
+/*--------------------
+        about
+ ---------------------*/
+/* ABOUT全体 */
+.about {
+    background-color: var(--color-base);
+
+    /* 上部：メインビジュアル */
+    .about-hero{
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        background-image: url("../images/about/about-hero.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+    /* 上部のテキスト */
+    .about-hero .container .about-hero-content{
+        max-width: 600px;
+        padding: 5rem 0;
+    }
+    /* 共通設定 .subtitle .title .desctiption */
+
     
+    /* 下部：3カラム */
+    .about-details {
+        padding: 6rem 0;
+    }
+    .about-details .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+    /* 左側の私たちの思い */
+    .about-details .container .about-philosophy{
+        min-width: 0;
+        /* 見出し */
+        & .about-heading{
+            margin-bottom: 2rem;
+            color: var(--color-accent3);
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        & .about-lead{
+            margin-bottom: 2rem;
+            color: var(--color-accent);
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            letter-spacing: 0.05em;
+        }
+    }
+    /* 中央の写真 */
+    .about-details .container .about-photo{
+        width: 100%;
+        min-width: 0;
+        & img{
+            display: block;
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+        }
+    }
+    /* 右側の大切にすること */
+    .about-details .container .about-values{
+        min-width: 0;
+
+        & .about-values-list{
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        & .about-values-list .about-value{  
+            position: relative;  /* アイコンと文章を横並びにする */
+            display: flex;
+            align-items: center;
+            min-height: 4.5rem;
+            padding-left: 6rem;
+        }
+        & .about-values-list .about-value::before{
+            content: "";  /* アイコンの背景になる丸 */
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            background-color: var(--color-accent2);
+        }
+        & .about-values-list .about-value .about-value-content{
+            position: relative;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+/*--------------------
+    about レスポンシブ
+ ---------------------*/
+/*----- メディアクエリ終わり -----*/
+
+
+
+
+
 
 
 /*--------------------
