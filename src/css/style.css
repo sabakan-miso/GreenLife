@@ -59,17 +59,17 @@ main{
 
     /* 上部：メインビジュアル */
     .about-hero{
-        min-height: 420px;
-        display: flex;
-        align-items: center;
-        background-image: url("../images/about/about-hero.jpg");
+        width: 100%;
+        min-height: 320px;
+        margin: 0 auto;
+        background-image: url("../images/about/about_back.jpg");
         background-size: cover;
         background-position: center;
     }
     /* 上部のテキスト */
     .about-hero .container .about-hero-content{
         max-width: 600px;
-        padding: 5rem 0;
+        padding: 5rem 0 5rem 4%;
     }
     /* 共通設定 .subtitle .title .desctiption */
 
@@ -109,7 +109,7 @@ main{
         width: 100%;
         min-width: 0;
         & img{
-            display: block;
+            display: block;            
             width: 100%;
             height: 360px;
             object-fit: cover;
@@ -145,6 +145,43 @@ main{
         & .about-values-list .about-value .about-value-content{
             position: relative;
         }
+        & .about-values-list .about-value .about-value-content::before{
+            content: ""; /* 丸の中に表示するアイコン */
+            position: absolute;
+            top: 50%;
+            left: -3.75rem;
+            transform: translate(-50%, -50%);
+            width: 2.4rem;
+            height: 2.4rem;
+            background-position: center;
+            background-size: contain;
+        }
+        /* それぞれのアイコン画像 */
+        .icon-plant::before{
+            background-image: url(../images/about/plant.png);
+        }
+        .icon-heart::before{
+            background-image: url(../images/about/heart.png);
+        }
+        .icon-earth::before{
+            background-image: url(../images/about/earth.png);
+        }
+        & .about-values-list .about-value .about-value-content{
+            h4{
+                margin-bottom: 0.5rem;
+                color: var(--color-accent3);
+                font-size: 1.6rem;
+                font-weight: 500;
+                line-height: 1.6;
+            }
+            p{
+                margin-bottom: 0;
+                color: var(--color-text2);
+                font-size: 1.4rem;
+                line-height: 1.6;
+            }
+        }
+
     }
 
 }
@@ -155,23 +192,45 @@ main{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     
 
 /*--------------------
-    about レスポンシブ
+   about レスポンシブ
  ---------------------*/
-/*----- メディアクエリ終わり -----*/
+ @media screen and (max-width: 768px) {
+
+    /* 上部のメインビジュアル */
+    .about .about-hero {
+        min-height: 350px;
+
+        & .container .about-hero-content {
+            padding: 4rem 0;
+        }
+    }
+
+    /* 下部を縦並びにする */
+    .about .about-details {
+        padding: 4rem 0;
+
+        & .container {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+        /* 中央：写真の高さをスマホ用に調整 */
+        & .container .about-photo img{
+            height: 280px;
+        }
+        /* 右側：見出しのサイズ */
+        & .container .about-values .about-heading{
+            font-size: 1.8rem;
+        }
+    }
+
+}/*----- メディアクエリ終わり -----*/
+
+
+
+
 
 
 
