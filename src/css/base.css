@@ -1,9 +1,10 @@
 /* 基本カラー */
 :root{
---color-base:#ffffff;
---color-text:#1b1a1de4;
---color-text2:#28292ec1;/*少し薄い黒*/
---color-border:#efefef;/*ライトグレー*/
+--color-base: #ffffff;
+--color-base2: #f8f8f3;/*クリーム色*/
+--color-text: #1b1a1de4;
+--color-text2: #28292ec1;/*少し薄い黒*/
+--color-border: #efefef;/*ライトグレー*/
 
 /* アクセントカラー */
 --color-accent: #527565; /*緑*/
