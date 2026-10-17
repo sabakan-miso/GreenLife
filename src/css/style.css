@@ -118,6 +118,9 @@ main{
     /* 右側の大切にすること */
     .about-details .container .about-values{
         min-width: 0;
+        & .about-heading{
+            margin-bottom: 2rem;
+        }
 
         & .about-values-list{
             display: flex;
