@@ -8,7 +8,7 @@ main{
     background-image: url(../images/fv/fv_back_pc.jpg);
     background-size: cover;
     background-position: center; /*背景画像を左へずらす*/
-    height: 100svh; /*svhスマホの操作バーが表示されている状態を基準に高さを計算*/
+    min-height: 80svh; /*svhスマホの操作バーが表示されている状態を基準に高さを計算*/
     display: flex;
     align-items: center;
     /* 固定ヘッダーの高さ分、文字を下げる */
@@ -27,14 +27,13 @@ main{
 
 
 
-
 /*--------------------
     fv レスポンシブ
  ---------------------*/
 @media screen and (max-width:768px) {
     .fv{
         background-image: url(../images/fv/fv_back_sp.jpg);
-        min-height: 100svh;
+        min-height: 70svh;
         height: auto;
         background-position: center;
         .container{
@@ -113,6 +112,7 @@ main{
             width: 100%;
             height: 360px;
             object-fit: cover;
+            border-radius: 10px;
         }
     }
     /* 右側の大切にすること */
@@ -198,7 +198,6 @@ main{
    about レスポンシブ
  ---------------------*/
  @media screen and (max-width: 768px) {
-
     /* 上部のメインビジュアル */
     .about .about-hero {
         min-height: 350px;
@@ -214,15 +213,42 @@ main{
 
         & .container {
             grid-template-columns: 1fr;
-            gap: 4rem;
+            gap: 3rem;
+        }
+        /* 左側：説明文の下の余白 */
+        & .container .about-philosophy .description{
+            margin-bottom: 0;
         }
         /* 中央：写真の高さをスマホ用に調整 */
         & .container .about-photo img{
-            height: 280px;
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
         }
         /* 右側：見出しのサイズ */
         & .container .about-values .about-heading{
             font-size: 1.8rem;
+        }
+        & .container .about-values .about-values-list{
+            gap: 1.2rem;
+
+            .about-value{
+                padding: 1.2rem 1rem 1.2rem 7rem;
+                border-radius: 1rem;
+                background-color: #F5F7F2;
+            }
+            /* アイコンの丸の位置 */
+            .about-value::before{
+                left: 1.2rem;
+            }
+            /* アイコンの画像の位置 */
+            .about-value .about-value-content::before {
+                left: -3.55rem;
+             
+            }
+            /* .about-value の左端から6remの位置
+            丸の中心はpadding 1.2rem + 〇の半分 2.25rem = 3.45rem
+            left 7rem - 3.45 = 3.55 */
         }
     }
 
