@@ -11,7 +11,9 @@ const commonOption = {
     viewFactor: 0.2, //要素の約20％が画面内に入ったら開始
 }
 
-
+// ==========================
+// FV
+// ==========================
 //FV：タイトル
 sr.reveal(".fv-title", {
   ...commonOption,
@@ -24,14 +26,17 @@ sr.reveal(".fv-description",{
     delay:300,
 });
 
+
+
+// ==========================
+// About
+// ==========================
 //About：タイトル
 sr.reveal(".about-title", {
     ...commonOption,
     delay: 500,
     viewFactor: 0.5,
 });
-
-
 
 //About：リード文
 sr.reveal(".about-lead", {
@@ -66,3 +71,45 @@ sr.reveal(".about-value", {
     interval: 200,
     viewFactor: 0.3,
 });
+
+
+
+// ==========================
+// Service
+// ==========================
+// Service上部：メインタイトル
+sr.reveal(".service-hero .service-title", {
+    ...commonOption,
+    delay: 200,
+});
+
+// Service上部：説明文
+sr.reveal(".service-hero .service-description", {
+    ...commonOption,
+    delay: 400,
+});
+
+// Service下側：セクションの見出し
+sr.reveal(".service-heading .service-title", {
+    ...commonOption,
+    delay: 200,
+    viewFactor: 0.4,
+});
+
+// Service下側：セクションの説明文
+sr.reveal(".service-heading .service-description", {
+    ...commonOption,
+    delay: 400,
+    viewFactor: 0.4,
+});
+
+// Serviceサービスカード：画像を順番に表示
+sr.reveal(".service-card", {
+    ...commonOption,
+    origin: "right",
+    distance: "60px",
+    duration: 1000,
+    interval: 200,
+    viewFactor: 0.3,
+});
+

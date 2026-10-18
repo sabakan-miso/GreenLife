@@ -386,6 +386,9 @@ main{
         }
         .service-content .container .service-heading{
             margin-bottom: 3rem;
+            & .title-h3{
+                font-size: 2rem;
+            }
         }
         /* カードを縦並びにする */
         .service-content .container .service-list{
