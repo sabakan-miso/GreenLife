@@ -113,3 +113,26 @@ sr.reveal(".service-card", {
     viewFactor: 0.3,
 });
 
+
+
+// ==========================
+// News
+// ==========================
+// News：タイトル
+sr.reveal(".news-title", {
+    ...commonOption,
+    delay: 200,
+});
+
+// News：説明文
+sr.reveal(".news-description", {
+    ...commonOption,
+    delay: 300,
+});
+
+// News：お知らせ一覧
+sr.reveal(".news-item", {
+    ...commonOption,
+    delay: 200,
+    interval: 200,
+});
