@@ -145,6 +145,46 @@ sr.reveal(".troubles-card", {
     interval: 200,
 });
 
+// ==========================
+// Service：植物のお医者さん
+// ==========================
+/* Plant Doctor：英字サブタイトル */
+sr.reveal(".doctor-subtitle", {
+    ...commonOption,
+    delay: 100,
+});
+/* Plant Doctor：タイトル */
+sr.reveal(".doctor-title", {
+    ...commonOption,
+    delay: 200,
+});
+/* Plant Doctor：リード文 */
+sr.reveal(".doctor-lead", {
+    ...commonOption,
+    delay: 300,
+});
+/* Plant Doctor：説明文 */
+sr.reveal(".doctor-description", {
+    ...commonOption,
+    delay: 400,
+});
+
+/* 左：写真 */
+sr.reveal(".doctor-photo", {
+    ...commonOption,
+    origin: "right",
+    distance: "40px",
+    delay: 200,
+});
+
+/* 右：サポート項目 */
+sr.reveal(".support-item", {
+    ...commonOption,
+    origin: "right",
+    distance: "30px",
+    delay: 500,
+    interval: 200,
+});
 
 // ==========================
 // News

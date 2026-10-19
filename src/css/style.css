@@ -533,15 +533,180 @@ main{
 
 
 
-
-
-
-
-
-
 /*--------------------
-   　植物のお医者さん
+ service-植物のお医者さん
  ---------------------*/
+/* 植物のお医者さん */
+.plant-doctor {
+    position: relative;
+    padding: 8rem 0 6rem;
+    background-color: var(--color-base);
+
+    /* 上から続く三角形 */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        background-color: var(--color-accent2);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    /* 写真・紹介文・サポートを横並び */
+    .container {
+        display: grid;
+        grid-template-columns: 0.8fr 1.1fr 1.2fr;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    /* 左：写真 */
+    .container .doctor-photo {
+        height: 100%;
+        min-height: 25rem;
+        overflow: hidden;
+        border-radius: 0.8rem;
+        & img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 25rem;
+            object-fit: cover;
+        }
+    }
+
+    /* 中央：紹介文 */
+    .container .doctor-content {
+        min-width: 0;
+
+        /*min-subtitle min-title min-descriptionは共通設定*/
+
+        & .mini-lead {
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+    }
+
+    /* 右：サポート一覧 */
+    .container .doctor-support {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* アイコンと文章を横並び */
+    .container .doctor-support .support-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        /* 丸い背景 */
+        & .support-icon {
+            position: relative;
+            flex-shrink: 0;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background-color: var(--color-accent2);
+
+            /* 丸の中にアイコンを表示 */
+            &::before {
+                content: "";
+                position: absolute;
+                width: 3rem;
+                height: 3rem;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-image: url("../images/service/doctor/doctor_01.png");
+                background-position: center;
+                background-size: contain;
+            }
+        }
+        /* 2つ目のアイコン */
+        &:nth-child(2) .support-icon::before {
+            background-image: url("../images/service/doctor/doctor_02.png");
+        }
+
+        /* 3つ目のアイコン */
+        &:nth-child(3) .support-icon::before {
+            background-image: url("../images/service/doctor/doctor_03.png");
+        }
+        /* サポートの見出し */
+        & .support-text h3 {
+            margin-bottom: 0.5rem;
+            color: var(--color-accent3);
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        /* サポートの説明 */
+        & .support-text p {
+            margin-bottom: 0;
+            color: var(--color-text2);
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+    }   
+}/* 植物のお医者さん終わり */
+
+/*----- 植物のお医者さん レスポンシブ -----*/
+@media screen and (max-width: 1024px) {
+    .plant-doctor {
+        .container {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .container .doctor-photo {
+            min-height: 30rem;
+        }
+
+        .container .doctor-support {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .plant-doctor {
+        padding: 7rem 0 5rem;
+
+        .container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        /* 写真を2番目に */
+        .container .doctor-photo {
+            grid-row: 2;
+            height: 24rem;
+            min-height: 0;
+            & img {
+                min-height: 0;
+            }
+        }
+        /* タイトル・紹介文を一番上に */
+        .container .doctor-content{
+            grid-row: 1;
+        }
+         /* サポート項目を3番目に */
+        .container .doctor-support {
+            grid-row: 3;
+            grid-column: auto;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .container .support-item {
+            align-items: center;
+        }
+    }
+}/*----- 植物のお医者さん レスポンシブ終わり -----*/
 
 
 
@@ -549,6 +714,9 @@ main{
 
 
 
+
+
+/*----- メディアクエリ終わり -----*/ 
 
 
  /*--------------------
