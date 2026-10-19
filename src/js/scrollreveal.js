@@ -116,6 +116,37 @@ sr.reveal(".service-card", {
 
 
 // ==========================
+// Service：植物のお悩み
+// ==========================
+// 植物のお悩み：英字サブタイトル
+sr.reveal(".troubles-subtitle", {
+    ...commonOption,
+    delay: 100,
+});
+
+// 植物のお悩み：タイトル
+sr.reveal(".troubles-title", {
+    ...commonOption,
+    delay: 200,
+});
+
+// 植物のお悩み：説明文
+sr.reveal(".troubles-description", {
+    ...commonOption,
+    delay: 300,
+});
+
+// 植物のお悩み：カード4枚
+sr.reveal(".troubles-card", {
+    ...commonOption,
+    distance: "30px",
+    origin: "right",
+    delay: 600,
+    interval: 200,
+});
+
+
+// ==========================
 // News
 // ==========================
 // News：タイトル

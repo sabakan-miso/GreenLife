@@ -404,6 +404,171 @@ main{
 } /*----- メディアクエリ終わり -----*/  
 
 
+/*--------------------
+  service---植物のお悩み
+ ---------------------*/
+.plant-troubles{
+    position: relative;
+    padding: 8rem 0 6rem;
+    background-color: var(--color-accent2);
+    /* 下向きの三角形 */
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        background-color: var(--color-base2);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+
+    .container{
+        display: grid;
+        grid-template-columns: 0.7fr 2fr;/*左約26%	右約74%*/
+        align-items: center;
+        gap: 3rem;
+    }
+    /* 見出し全体 */
+    .container .troubles-heading{
+        max-width: 700px;
+        margin: 0;
+        text-align: left;
+    }
+    /*  mini-subtitle 
+        mini-title
+        mini-description
+    共通設定 */
+
+    /* カード4枚 */
+    .container .troubles-list{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    /* カード本体 */
+    .container .troubles-list .troubles-card{
+        overflow: hidden;
+        background-color: var(--color-base);
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1.5rem rgba(32, 61, 53, 0.2);
+        transition: transform 0.3s ease,
+                    box-shadow 0.3s ease;
+        /* 写真の場所 */
+        & .troubles-card-image{
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+        }
+        & .troubles-card-image img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        /* カード内の文章 */
+        & .troubles-card-content {
+            padding: 1rem;
+        }
+        /* カードの見出し */
+        & .troubles-card-content h3{
+            margin-bottom: 1rem;
+            color: var(--color-accent4);
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        /* カードの説明文 */
+        & .troubles-card-content p {
+            margin-bottom: 0;
+            color: var(--color-accent);
+            font-size: 1.3rem;
+            line-height: 2;
+            letter-spacing: 0.03em;
+        }
+    }
+    /* ホバー時 */
+    .container .troubles-list .troubles-card:hover{
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 2rem rgba(32, 61, 53, 0.3);
+    }
+    
+}
+
+/*----- 植物のお悩み レスポンシブ -----*/
+@media screen and (max-width: 1024px) {
+    .plant-troubles {
+        padding: 7rem 0 5rem;
+        .container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .container .troubles-heading{
+            grid-row: 1;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .container .troubles-list{
+            grid-row: 2;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .plant-troubles {
+        .container .troubles-list{
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
+@media screen and (max-width: 480px){
+    .plant-troubles {
+        .container .troubles-list{
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+}
+/*----- メディアクエリ終わり -----*/ 
+
+
+
+
+
+
+
+
+
+/*--------------------
+   　植物のお医者さん
+ ---------------------*/
+
+
+
+
+
+
+
+
+
+ /*--------------------
+      おすすめの植物
+ ---------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 /*--------------------
          news
@@ -521,17 +686,9 @@ main{
 
 
 
-
-
-
-
-
-
-
-/* =========================
-   News：スマートフォン
-========================= */
-
+/*--------------------
+   news レスポンシブ
+ ---------------------*/
 @media screen and (max-width: 768px){
 
     /* 上側の写真 */
@@ -586,9 +743,8 @@ main{
 
 
 
-/*--------------------
-   news レスポンシブ
- ---------------------*/
+
+
 
 
 

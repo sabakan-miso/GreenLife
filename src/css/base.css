@@ -99,7 +99,6 @@ small{
     margin-bottom: 2rem;
     color: var(--color-accent);
     font-family: "Cormorant Garamond", serif;
-    color: var(--color-accent);
 }
 
 /* キャッチコピー */
@@ -121,6 +120,37 @@ small{
     line-height: 2.2;
     letter-spacing: 0.04em;
 }
+
+/*------------------------
+   service内の共通設定 
+-------------------------*/
+/* service内の英語のサブタイトル */
+ .mini-subtitle{
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+}
+/* service内の日本語タイトル */
+.mini-title{
+    margin-bottom: 2rem;
+    color: var(--color-accent3);
+    font-size: clamp(2.4rem, 2rem + 1.5vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+/* service内の説明文 */
+.mini-description{
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    line-height: 2.2;
+    letter-spacing: 0.04em; 
+}
+
+
+
 
 
 
