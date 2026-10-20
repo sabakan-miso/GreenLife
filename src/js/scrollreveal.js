@@ -186,6 +186,35 @@ sr.reveal(".support-item", {
     interval: 200,
 });
 
+/* =========================
+   Service：おすすめの植物
+========================= */
+/* Plant Pickup：英字サブタイトル */
+sr.reveal(".pickup-subtitle", {
+    ...commonOption,
+    delay: 100,
+});
+/* Plant Pickup：タイトル */
+sr.reveal(".pickup-title", {
+    ...commonOption,
+    delay: 200,
+});
+/* Plant Pickup：説明文 */
+sr.reveal(".pickup-description", {
+    ...commonOption,
+    delay: 300,
+});
+
+
+// 植物スライダー
+sr.reveal(".plant-pickup .pickup-slider", {
+    ...commonOption,
+    origin: "right",
+    delay: 400,
+    distance: "30px",
+});
+
+
 // ==========================
 // News
 // ==========================

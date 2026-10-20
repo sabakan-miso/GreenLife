@@ -10,19 +10,19 @@ import '@splidejs/splide/css';
 
 new Splide( '.splide',{
     type   : 'loop',
-    perPage: 5,
+    perPage: 3,
     autoplay: true, //自動再生
-    interval: 5000, // 自動再生の間隔
+    interval: 7000, // 自動再生の間隔
     focus: "center",//中央をアクティブに
     gap: "0.5rem",//スライド間の余白
     
     breakpoints: {
         768: {
-            perPage: 3,
+            perPage: 1,
+            gap: "1.5rem",
+            padding: "10%", //左右のカードが少し見える設定
         },
-        480: {
-            perPage:1,
-        },
+    
     }
 } ).mount();
 
