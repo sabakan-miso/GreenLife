@@ -404,6 +404,7 @@ main{
 } /*----- メディアクエリ終わり -----*/  
 
 
+
 /*--------------------
   service---植物のお悩み
  ---------------------*/
@@ -710,17 +711,10 @@ main{
 }/*----- 植物のお医者さん レスポンシブ終わり -----*/
 
 
+
  /*--------------------
-      おすすめの植物
+  service-おすすめの植物
  ---------------------*/
-
-
-
-
-
-/* =========================
-   おすすめの植物
-========================= */
 .plant-pickup {
     position: relative;
     padding: 9rem 0 7rem;
@@ -916,15 +910,7 @@ main{
     }
 }
 
-
-
-
-
-
-
-
 /*----- おすすめの植物のレスポンシブ -----*/
-
 @media screen and (max-width: 1024px) {
     .plant-pickup {
         padding: 7rem 0 5rem;
@@ -989,22 +975,10 @@ main{
         }
     }
 }
-
- 
-
-
-
 /*----- おすすめの植物のレスポンシブ終わり -----*/
 
 
 
-
-
-
-
-
-
-    
 /*--------------------
          news
  ---------------------*/
@@ -1119,8 +1093,6 @@ main{
     }/* news-layout終わり */
 }/*-----news終わり-----*/
 
-
-
 /*--------------------
    news レスポンシブ
  ---------------------*/
@@ -1174,13 +1146,209 @@ main{
 
 
 
+/*--------------------
+         contact
+ ---------------------*/
+.contact {
+    background-color: var(--color-accent2);
+    /* =========================
+    上側：背景画像と見出し
+    ========================= */
+    .contact-hero {
+        /* 背景画像 */
+        width: 100%;
+        min-height: 300px;
+        background-image: url(../images/contact/contact_back_pc.jpg);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        .container{
+            width: 100%;
+            margin: 0 auto;
+        }  
+        .container .contact-hero-content{
+            max-width: 600px;
+            margin-left: 4%;
+            padding: 3rem 0;
+        }
+        /*subtitle title descriptionは共通CSS*/
+    }
+    /* =========================
+    下側：会社情報と地図
+    ========================= */
+    .contact-content {
+        padding: 5rem 0 3em;
+
+        .container{
+            display: grid;
+            grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+            align-items: start;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* 下段左側：会社情報 */
+        .container .contact-info{
+            min-width: 0;
+        }
+        /*会社名*/
+        .container .contact-info .contact-info-title{
+            margin-bottom: 2.5rem;
+            color: var(--color-accent3);
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+        .container .contact-info .contact-item{
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            /* アイコンを入れる丸い部分 */
+            & .contact-icon{
+                position: relative;
+                width: 5rem;
+                height: 5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: var(--color-accent);
+                border-radius: 50%;
+            }
+            & .contact-icon::before{
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 3rem;
+                height: 3rem;
+                background-position: center;
+                background-size: contain;
+            }
+            & .phone-icon::before{
+                background-image: url(../images/contact/phone-icon.png);
+            }
+            & .email-icon::before{
+                background-image: url(../images/contact/email-icon.png);
+            }
+            & .address-icon::before{
+                background-image: url(../images/contact/address-icon.png);
+            }
+            /* 電話・メール・住所の見出し */
+            & h4{
+                margin-bottom: 0.5rem;
+                color: var(--color-accent3);
+                font-size: 1.5rem;
+                font-weight: 500;
+                line-height: 1.6;              
+            }
+            & p,a {
+                color: var(--color-text2);
+                font-size: 1.4rem;
+                line-height: 1.9;
+            }
+            & a{
+                transition: color 0.3s ease;
+            }
+            & a:hover{
+                color: var(--color-accent);
+            }
+            & .contact-note{
+                font-size: 1.2rem;
+            }
+        }
+        /* SNSリンク */
+        .container .contact-info .social-links-area{
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            & h4{
+                margin-bottom: 1.5rem;
+                color: var(--color-accent3);
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+        }
+        /* 下段右側：Googleマップ */
+        .container .contact-map{
+            min-width: 0;
+            & .contact-map-title{
+                margin-bottom: 0.5rem;
+                color: var(--color-accent3);
+                font-family: "Cormorant Garamond", serif;
+                font-size: 2.8rem;
+                font-weight: 500;
+            }
+            & .contact-map-description {
+                margin-bottom: 1.5rem;
+                color: var(--color-text2);
+                font-size: 1.4rem;
+                line-height: 1.8;
+            }
+            & .contact-map-frame{
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                overflow: hidden;
+                border-radius: 1rem;
+                box-shadow: 0 0.5rem 2rem rgba(32, 61, 53, 0.2);
+                 & iframe {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+    /* 架空サイトの注意書き */
+    .contact-disclaimer {
+        margin: 0;
+        padding: 1rem;
+        color: var(--color-text2);
+        background-color: var(--color-accent2);
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: center;
+    }
+}
 
 
 
+/*--------------------
+  contact　レスポンシブ
+ ---------------------*/
+@media screen and (max-width: 768px){
+    /* 上側の写真 */
+    .contact .contact-hero {
+        min-height: 280px;
+        background-position: 25% center;
+    }
+    .contact .contact-hero .container{
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .contact .contact-hero .container .contact-hero-content{
+        max-width: 300px;
+        padding: 2.5rem 0;
+    }
 
-
-
-
+    /* 下側の会社情報と地図 */
+    .contact .contact-content {
+        padding: 3.5rem 0 2rem;
+        & .container{
+            grid-template-columns: minmax(0, 1fr);
+            gap: 3.5rem;
+            padding: 0 2rem;
+        }
+    }
+    /*地図を縦長に*/
+    .contact .contact-content .container{
+        & .contact-map .contact-map-frame {
+            aspect-ratio: 16 / 9;
+        }
+    }
+}
 
 
 

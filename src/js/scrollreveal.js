@@ -210,7 +210,7 @@ sr.reveal(".pickup-description", {
 sr.reveal(".plant-pickup .pickup-slider", {
     ...commonOption,
     origin: "right",
-    delay: 400,
+    delay: 500,
     distance: "30px",
 });
 
@@ -235,4 +235,57 @@ sr.reveal(".news-item", {
     ...commonOption,
     delay: 200,
     interval: 200,
+});
+
+
+
+// ==========================
+// Contact
+// ==========================
+/* Contact：メインビジュアルの見出し */
+sr.reveal(".contact-title", {
+    ...commonOption,
+    delay: 100,
+});
+
+sr.reveal(".contact-description", {
+    ...commonOption,
+    delay: 200,
+});
+
+/* Contact：会社情報の見出し */
+sr.reveal(".contact-info-title", {
+    ...commonOption,
+    delay: 300,
+});
+
+/* Contact：電話番号・メール・住所 */
+sr.reveal(".contact-item", {
+    ...commonOption,
+    delay: 400,
+    interval: 200,
+});
+
+/* Contact：SNSエリア */
+sr.reveal(".social-links-area", {
+    ...commonOption,
+    delay: 500,
+});
+
+/* Contact：地図エリア */
+sr.reveal(".contact-map-title", {
+    ...commonOption,
+    delay: 100,
+});
+
+sr.reveal(".contact-map-description", {
+    ...commonOption,
+    delay: 200,
+});
+
+sr.reveal(".contact-map-frame", {
+    ...commonOption,
+    origin: "right",
+    distance: "30px",
+    delay: 300,
 });
