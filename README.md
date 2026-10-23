@@ -23,6 +23,3 @@ https://sabakan-miso.github.io/GreenLife/
 
 Webデザインおよびフロントエンドの学習を目的として制作した架空のWebサイトです。
 
-## 公開サイト
-
-GitHub Pagesで公開予定
